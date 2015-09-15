@@ -109,9 +109,9 @@ AliAnalysisGrid* CreateAlienHandler(TString pluginmode="test",
     // Set data search pattern for DATA
     //************************************************
     
-    plugin->SetGridDataDir("/alice/data/2015/LHC15i/"); // specify LHC period
+    plugin->SetGridDataDir("/alice/data/2015/LHC15f/"); // specify LHC period
     //225582   plugin->SetDataPattern("pass1/*ESDs.root"); // specify reco pass and AOD set
-    plugin->SetDataPattern("muon_calo_pass1/*ESDs.root"); // specify reco pass and AOD set
+    plugin->SetDataPattern("pass2/*ESDs.root"); // specify reco pass and AOD set
     plugin->SetRunPrefix("000");   // real data
     Int_t nruns = 0;
     
@@ -125,10 +125,10 @@ AliAnalysisGrid* CreateAlienHandler(TString pluginmode="test",
     //    plugin->AddRunNumber(226551); // data only
     
     //    nruns++;
-//        plugin->AddRunNumber(225763); // data only
+        plugin->AddRunNumber(225763); // data only
     
 //        nruns++;
-    plugin->AddRunNumber(235226); // data only
+//    plugin->AddRunNumber(235226); // data only
     
     nruns++;
     
