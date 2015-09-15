@@ -228,6 +228,22 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
     TH2F *hDenomAD_HM[3][3][3];
     //______________________________
     
+    
+    TH2F *hNumTrkVsClsSPIDii1[3][3][3];
+    TH2F *hNumTrkVsClsSPIDii2[3][3][3];
+    TH2F *hNumTrkVsClsSPIDii3[3][3][3];
+    TH2F *hNumTrkVsClsSPIDii4[3][3][3];
+    TH2F *hNumTrkVsClsSPIDii5[3][3][3];
+    
+    
+    TH2F *hNumTrkVsClsSPIDii1HM[3][3][3];
+    TH2F *hNumTrkVsClsSPIDii2HM[3][3][3];
+    TH2F *hNumTrkVsClsSPIDii3HM[3][3][3];
+    TH2F *hNumTrkVsClsSPIDii4HM[3][3][3];
+    TH2F *hNumTrkVsClsSPIDii5HM[3][3][3];
+    //______________________________ add for check each v0flag condition 2015.09.15. (blim)
+    
+    
     TH2F *hTotalTrkVsClsSPID = new TH2F("hTotalTrkVsClsSPID","; Spd : total",140,0,140,500,0,500);
     hTotalTrkVsClsSPID->GetXaxis()->SetTitle("Tracklet");
     hTotalTrkVsClsSPID->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
@@ -296,6 +312,27 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
                         hDenomTrkVsClsSPID[i][j][k]= new TH2F(Form("hDenomTrkVsClsSPID%d_V0%d_Flag%d",i,j,k),"; Spd : !BGid",140,0,140,500,0,500);
                         hDenomTrkVsClsSPID[i][j][k]->GetXaxis()->SetTitle("Tracklet");
                         hDenomTrkVsClsSPID[i][j][k]->GetYaxis()->SetTitle("Cluster (fspdC1)");
+                        //______________________________
+                        hNumTrkVsClsSPIDii1[i][j][k] = new TH2F(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_1",i,j,k),"; Spd : !GoodEvent",140,0,140,500,0,500);
+                        hNumTrkVsClsSPIDii1[i][j][k]->GetXaxis()->SetTitle("Tracklet");
+                        hNumTrkVsClsSPIDii1[i][j][k]->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
+                        
+                        hNumTrkVsClsSPIDii2[i][j][k] = new TH2F(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_2",i,j,k),"; Spd : !GoodEvent",140,0,140,500,0,500);
+                        hNumTrkVsClsSPIDii2[i][j][k]->GetXaxis()->SetTitle("Tracklet");
+                        hNumTrkVsClsSPIDii2[i][j][k]->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
+                        
+                        hNumTrkVsClsSPIDii3[i][j][k] = new TH2F(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_3",i,j,k),"; Spd : !GoodEvent",140,0,140,500,0,500);
+                        hNumTrkVsClsSPIDii3[i][j][k]->GetXaxis()->SetTitle("Tracklet");
+                        hNumTrkVsClsSPIDii3[i][j][k]->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
+                        
+                        hNumTrkVsClsSPIDii4[i][j][k] = new TH2F(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_4",i,j,k),"; Spd : !GoodEvent",140,0,140,500,0,500);
+                        hNumTrkVsClsSPIDii4[i][j][k]->GetXaxis()->SetTitle("Tracklet");
+                        hNumTrkVsClsSPIDii4[i][j][k]->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
+                        
+                        hNumTrkVsClsSPIDii5[i][j][k] = new TH2F(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_5",i,j,k),"; Spd : !GoodEvent",140,0,140,500,0,500);
+                        hNumTrkVsClsSPIDii5[i][j][k]->GetXaxis()->SetTitle("Tracklet");
+                        hNumTrkVsClsSPIDii5[i][j][k]->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
+                        //______________________________ add for check each v0flag condition 2015.09.12. (blim)
                         
                         hNumV0[i][j][k] = new TH2F(Form("hNumV0%d_V0%d_Flag%d",i,j,k),"; V0 : !BGid & GoodEvent",600,-300,300,2000,-1000,1000);
                         hNumV0[i][j][k]->GetXaxis()->SetTitle("V0A-V0C");
@@ -340,6 +377,13 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
                         fList->Add(hDenomAD[i][j][k]);
                         
                         
+                        fList->Add(hNumTrkVsClsSPIDii1[i][j][k]);
+                        fList->Add(hNumTrkVsClsSPIDii2[i][j][k]);
+                        fList->Add(hNumTrkVsClsSPIDii3[i][j][k]);
+                        fList->Add(hNumTrkVsClsSPIDii4[i][j][k]);
+                        fList->Add(hNumTrkVsClsSPIDii5[i][j][k]);
+                        
+                        
                         //_______________________________________add new List for both result 2015.08.20. (blim)
                         
                         hNumEffPurityBC_HM[i][j][k] = new TH1F(Form("hNumEffPurityBC_HM%d_V0%d_Flag%d",i,j,k),"; #V0flags in PF", 35, 0, 35);
@@ -364,6 +408,29 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
                         hDenomV0_HM[i][j][k]= new TH2F(Form("hDenomV0_HM%d_V0%d_Flag%d",i,j,k),"; V0 : !BGid",600,-300,300,2000,-1000,1000);
                         hDenomV0_HM[i][j][k]->GetXaxis()->SetTitle("V0A-V0C");
                         hDenomV0_HM[i][j][k]->GetYaxis()->SetTitle("V0A+V0C");
+                        
+                        
+                        //______________________________
+                        hNumTrkVsClsSPIDii1HM[i][j][k] = new TH2F(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_1_HM",i,j,k),"; Spd : !GoodEvent",140,0,140,500,0,500);
+                        hNumTrkVsClsSPIDii1HM[i][j][k]->GetXaxis()->SetTitle("Tracklet");
+                        hNumTrkVsClsSPIDii1HM[i][j][k]->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
+                        
+                        hNumTrkVsClsSPIDii2HM[i][j][k] = new TH2F(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_2-HM",i,j,k),"; Spd : !GoodEvent",140,0,140,500,0,500);
+                        hNumTrkVsClsSPIDii2HM[i][j][k]->GetXaxis()->SetTitle("Tracklet");
+                        hNumTrkVsClsSPIDii2HM[i][j][k]->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
+                        
+                        hNumTrkVsClsSPIDii3HM[i][j][k] = new TH2F(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_3_HM",i,j,k),"; Spd : !GoodEvent",140,0,140,500,0,500);
+                        hNumTrkVsClsSPIDii3HM[i][j][k]->GetXaxis()->SetTitle("Tracklet");
+                        hNumTrkVsClsSPIDii3HM[i][j][k]->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
+                        
+                        hNumTrkVsClsSPIDii4HM[i][j][k] = new TH2F(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_4_HM",i,j,k),"; Spd : !GoodEvent",140,0,140,500,0,500);
+                        hNumTrkVsClsSPIDii4HM[i][j][k]->GetXaxis()->SetTitle("Tracklet");
+                        hNumTrkVsClsSPIDii4HM[i][j][k]->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
+                        
+                        hNumTrkVsClsSPIDii5HM[i][j][k] = new TH2F(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_5_HM",i,j,k),"; Spd : !GoodEvent",140,0,140,500,0,500);
+                        hNumTrkVsClsSPIDii5HM[i][j][k]->GetXaxis()->SetTitle("Tracklet");
+                        hNumTrkVsClsSPIDii5HM[i][j][k]->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
+                        //______________________________ add for check each v0flag condition 2015.09.12. (blim)
                         
                         
                         hADNumEffPurityBC_HM[i][j][k] = new TH1F(Form("hADNumEffPurityBC_HM%d_AD%d_Flag%d",i,j,k),"; #ADflags in PF", 10, 0, 10);
@@ -398,6 +465,13 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
                         fList2->Add(hADNumTrkVsClsSPD_HM[i][j][k]);
                         fList2->Add(hNumAD_HM[i][j][k]);
                         fList2->Add(hDenomAD_HM[i][j][k]);
+                        
+                        
+                        fList2->Add(hNumTrkVsClsSPIDii1HM[i][j][k]);
+                        fList2->Add(hNumTrkVsClsSPIDii2HM[i][j][k]);
+                        fList2->Add(hNumTrkVsClsSPIDii3HM[i][j][k]);
+                        fList2->Add(hNumTrkVsClsSPIDii4HM[i][j][k]);
+                        fList2->Add(hNumTrkVsClsSPIDii5HM[i][j][k]);
                         //_______________________________________
                         
                         
@@ -749,6 +823,13 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                                         ((TH1F*)fList->FindObject(Form("hNumRejecEffBC%d_V0%d_Flag%d",i,j,k)))->Fill(ii-1);
                                     }
                                 }
+                                if(!SelGoodEvent[i][j][k]){
+                                    if (ii==1) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_1",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
+                                    if (ii==2) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_2",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
+                                    if (ii==3) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_3",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
+                                    if (ii==4) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_4",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
+                                    if (ii==5) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_5",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
+                                }
                             }
                         }
                     }
@@ -915,6 +996,13 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                                     if(!SelGoodEvent[i][j][k]){
                                         ((TH1F*)fList2->FindObject(Form("hNumRejecEffBC_HM%d_V0%d_Flag%d",i,j,k)))->Fill(ii-1);
                                     }
+                                }
+                                if(!SelGoodEvent[i][j][k]){
+                                    if (ii==1) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_1_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
+                                    if (ii==2) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_2_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
+                                    if (ii==3) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_3_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
+                                    if (ii==4) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_4_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
+                                    if (ii==5) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_5_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
                                 }
                             }
                         }
