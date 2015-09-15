@@ -998,11 +998,11 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                                     }
                                 }
                                 if(!SelGoodEvent[i][j][k]){
-                                    if (ii==1) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_1_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
-                                    if (ii==2) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_2_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
-                                    if (ii==3) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_3_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
-                                    if (ii==4) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_4_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
-                                    if (ii==5) ((TH1F*)fList->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_5_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
+                                    if (ii==1) ((TH1F*)fList2->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_1_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
+                                    if (ii==2) ((TH1F*)fList2->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_2_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
+                                    if (ii==3) ((TH1F*)fList2->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_3_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
+                                    if (ii==4) ((TH1F*)fList2->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_4_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
+                                    if (ii==5) ((TH1F*)fList2->FindObject(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_5_HM",i,j,k)))->Fill(fSpdT, fSpdC1+fSpdC2);
                                 }
                             }
                         }
