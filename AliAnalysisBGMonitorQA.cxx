@@ -1064,10 +1064,10 @@ Bool_t IsItBGSPDClusterVsTracklet2(AliVEvent *event)
     Double_t cls = nClustersLayer0 + nClustersLayer1;
     Bool_t spdBg = kFALSE;
     
-    if (trk < 2.1745 && cls > 65 + 4.*trk) {
+    if (trk < 5.944 && cls > 65 + 4.*trk) {
         spdBg = kTRUE;
     }
-    else if (trk >= 2.1745 && trk < 26 && cls > 20.0 + (378-20)/(26-1.5)*(trk-1.5)) {
+    else if (trk >= 5.944 && trk < 26 && cls > 20.0 + (378-20)/(26-1.5)*(trk-1.5)) {
         spdBg = kTRUE;
     }
     else if (trk >= 26 && trk < 40 && cls > 378.0 + (505-378)/(40-26.)*(trk-26.)) {
