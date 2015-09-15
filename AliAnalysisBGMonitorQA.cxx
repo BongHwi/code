@@ -415,7 +415,7 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
                         hNumTrkVsClsSPIDii1HM[i][j][k]->GetXaxis()->SetTitle("Tracklet");
                         hNumTrkVsClsSPIDii1HM[i][j][k]->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
                         
-                        hNumTrkVsClsSPIDii2HM[i][j][k] = new TH2F(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_2-HM",i,j,k),"; Spd : !GoodEvent",140,0,140,500,0,500);
+                        hNumTrkVsClsSPIDii2HM[i][j][k] = new TH2F(Form("hNumTrkVsClsSPID%d_V0%d_Flag%d__ii_2_HM",i,j,k),"; Spd : !GoodEvent",140,0,140,500,0,500);
                         hNumTrkVsClsSPIDii2HM[i][j][k]->GetXaxis()->SetTitle("Tracklet");
                         hNumTrkVsClsSPIDii2HM[i][j][k]->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
                         
@@ -753,8 +753,6 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     
     
     if(ftrigger[0]) {  // trigger class for MB
-
-        cout << "MB now" << endl; // for check
         
         ((TH1F*)fList->FindObject("hTotalTrkVsClsSPID"))->Fill(fSpdT, fSpdC1+fSpdC2);
         ((TH1F*)fList->FindObject("hTotalV0"))->Fill(fv0a-fv0c, fv0a+fv0c);
@@ -939,8 +937,6 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     // initialize 2015.08.17.(blim)
     
     if(ftrigger[9]) {  // trigger class for HM // add new List for both result 2015.08.20. (blim)
-        
-        cout << "HM now" << endl; // for check
         
         ((TH1F*)fList2->FindObject("hTotalTrkVsClsSPID_HM"))->Fill(fSpdT, fSpdC1+fSpdC2);
         ((TH1F*)fList2->FindObject("hTotalV0_HM"))->Fill(fv0a-fv0c, fv0a+fv0c);
