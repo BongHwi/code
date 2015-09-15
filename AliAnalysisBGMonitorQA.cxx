@@ -485,7 +485,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     //    bgID = utils->IsSPDClusterVsTrackletBG(fESD);
     
     // modified slope cut. the function is in below of this source(blim)
-        bgID = IsItBGSPDClusterVsTracklet2(fESD); // original modified function
+    bgID = IsItBGSPDClusterVsTracklet(fESD); // original modified function
     //bgID = IsItBGSPDClusterVsTracklet2(fESD); // modified modified function
     
     spdPileUp = utils->IsPileUpSPD(fESD);
