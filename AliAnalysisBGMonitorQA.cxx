@@ -1196,83 +1196,83 @@ Bool_t IsItBGSPDClusterVsTracklet2(AliVEvent *event)
 void AliAnalysisBGMonitorQA::SelectGoodEventWithV0Variation(Int_t bunchrange, Int_t v0variation ,Int_t flagvariation, Int_t ii){
     
     
-    //Bunch range 0-9 and 11-21
+    //Bunch range 3-7 and 11-17
     if (bunchrange == 0) {
         if (v0variation == 0 || v0variation == 1) if (flagvariation == 0 || flagvariation == 2){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] = BGFlagA[11]<ii & BGFlagA[12]<ii & BGFlagA[13]<ii & BGFlagA[14]<ii & BGFlagA[15]<ii & BGFlagA[16]<ii & BGFlagA[17]<ii & BGFlagA[18]<ii & BGFlagA[19]<ii & BGFlagA[20]<ii & BGFlagA[21]<ii;//BG-A 11-21
+            SelGoodEvent[bunchrange][v0variation][flagvariation] = BGFlagA[11]<ii & BGFlagA[12]<ii & BGFlagA[13]<ii & BGFlagA[14]<ii & BGFlagA[15]<ii & BGFlagA[16]<ii & BGFlagA[17]<ii;//BG-A 11-17
         }
         if (v0variation == 0) if (flagvariation == 0 || flagvariation == 2){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BGFlagC[11]<ii & BGFlagC[12]<ii & BGFlagC[13]<ii & BGFlagC[14]<ii & BGFlagC[15]<ii & BGFlagC[16]<ii & BGFlagC[17]<ii & BGFlagC[18]<ii & BGFlagC[19]<ii & BGFlagC[20]<ii & BGFlagC[21]<ii; //BG-C 11-21
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BGFlagC[11]<ii & BGFlagC[12]<ii & BGFlagC[13]<ii & BGFlagC[14]<ii & BGFlagC[15]<ii & BGFlagC[16]<ii & BGFlagC[17]<ii; //BG-C 11-17
         }
         if (v0variation == 2) if (flagvariation == 0 || flagvariation == 2){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] = BGFlagC[11]<ii & BGFlagC[12]<ii & BGFlagC[13]<ii & BGFlagC[14]<ii & BGFlagC[15]<ii & BGFlagC[16]<ii & BGFlagC[17]<ii & BGFlagC[18]<ii & BGFlagC[19]<ii & BGFlagC[20]<ii & BGFlagC[21]<ii; //BG-C 11-21 for the first loop
+            SelGoodEvent[bunchrange][v0variation][flagvariation] = BGFlagC[11]<ii & BGFlagC[12]<ii & BGFlagC[13]<ii & BGFlagC[14]<ii & BGFlagC[15]<ii & BGFlagC[16]<ii & BGFlagC[17]<ii; //BG-C 11-17 for the first loop
         }
         if (v0variation == 0 ||v0variation == 1) if (flagvariation == 0 || flagvariation == 2){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BGFlagA[9]<ii & BGFlagA[8]<ii & BGFlagA[7]<ii  & BGFlagA[6]<ii  & BGFlagA[5]<ii  & BGFlagA[4]<ii & BGFlagA[3]<ii & BGFlagA[2]<ii & BGFlagA[1]<ii & BGFlagA[0]<ii; //BG-A 0-9
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BGFlagA[7]<ii  & BGFlagA[6]<ii  & BGFlagA[5]<ii  & BGFlagA[4]<ii  & BGFlagA[3]<ii; //BG-A 3-7
         }
         if (v0variation == 0 ||v0variation == 2) if (flagvariation == 0 || flagvariation == 2){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BGFlagC[9]<ii & BGFlagC[8]<ii & BGFlagC[7]<ii  & BGFlagC[6]<ii  & BGFlagC[5]<ii  & BGFlagC[4]<ii & BGFlagC[3]<ii & BGFlagC[2]<ii & BGFlagC[1]<ii & BGFlagC[0]<ii; //BG-C 0-9
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BGFlagC[7]<ii  & BGFlagC[6]<ii  & BGFlagC[5]<ii  & BGFlagC[4]<ii  & BGFlagC[3]<ii; //BG-C 3-7
         }
         if (v0variation == 0 ||v0variation == 1) if (flagvariation == 0){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagA[11]<ii & BBFlagA[12]<ii & BBFlagA[13]<ii & BBFlagA[14]<ii & BBFlagA[15]<ii & BBFlagA[16]<ii & BBFlagA[17]<ii & BBFlagA[18]<ii & BBFlagA[19]<ii & BBFlagA[20]<ii & BBFlagA[21]<ii; //BB-A 11-21
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagA[11]<ii & BBFlagA[12]<ii & BBFlagA[13]<ii & BBFlagA[14]<ii & BBFlagA[15]<ii & BBFlagA[16]<ii & BBFlagA[17]<ii; //BB-A 11-17
         }
         if (v0variation == 0 ||v0variation == 1) if (flagvariation == 1){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] = BBFlagA[11]<ii & BBFlagA[12]<ii & BBFlagA[13]<ii & BBFlagA[14]<ii & BBFlagA[15]<ii & BBFlagA[16]<ii & BBFlagA[17]<ii & BBFlagA[18]<ii & BBFlagA[19]<ii & BBFlagA[20]<ii & BBFlagA[21]<ii; //BB-A 11-21 for the first loop
+            SelGoodEvent[bunchrange][v0variation][flagvariation] = BBFlagA[11]<ii & BBFlagA[12]<ii & BBFlagA[13]<ii & BBFlagA[14]<ii & BBFlagA[15]<ii & BBFlagA[16]<ii & BBFlagA[17]<ii; //BB-A 11-17 for the first loop
         }
         if (v0variation == 0 ) if (flagvariation == 0 || flagvariation == 1){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagC[11]<ii & BBFlagC[12]<ii & BBFlagC[13]<ii & BBFlagC[14]<ii & BBFlagC[15]<ii & BBFlagC[16]<ii & BBFlagC[17]<ii & BBFlagC[18]<ii & BBFlagC[19]<ii & BBFlagC[20]<ii & BBFlagC[21]<ii; //BB-C 11-21
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagC[11]<ii & BBFlagC[12]<ii & BBFlagC[13]<ii & BBFlagC[14]<ii & BBFlagC[15]<ii & BBFlagC[16]<ii & BBFlagC[17]<ii; //BB-C 11-17
         }
         if (v0variation == 2) if (flagvariation == 0){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagC[11]<ii & BBFlagC[12]<ii & BBFlagC[13]<ii & BBFlagC[14]<ii & BBFlagC[15]<ii & BBFlagC[16]<ii & BBFlagC[17]<ii & BBFlagC[18]<ii & BBFlagC[19]<ii & BBFlagC[20]<ii & BBFlagC[21]<ii; //BB-C 11-21
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagC[11]<ii & BBFlagC[12]<ii & BBFlagC[13]<ii & BBFlagC[14]<ii & BBFlagC[15]<ii & BBFlagC[16]<ii & BBFlagC[17]<ii; //BB-C 11-17
         }
         if (v0variation == 2) if (flagvariation == 1){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] = BBFlagC[11]<ii & BBFlagC[12]<ii & BBFlagC[13]<ii & BBFlagC[14]<ii & BBFlagC[15]<ii & BBFlagC[16]<ii & BBFlagC[17]<ii & BBFlagC[18]<ii & BBFlagC[19]<ii& BBFlagC[20]<ii& BBFlagC[21]<ii; //BB-C 11-21
+            SelGoodEvent[bunchrange][v0variation][flagvariation] = BBFlagC[11]<ii & BBFlagC[12]<ii & BBFlagC[13]<ii & BBFlagC[14]<ii & BBFlagC[15]<ii & BBFlagC[16]<ii & BBFlagC[17]<ii; //BB-C 11-17
         }
         if (v0variation == 0 ||v0variation == 1) if (flagvariation == 0 || flagvariation == 1){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagA[9]<ii & BBFlagA[8]<ii & BBFlagA[7]<ii  & BBFlagA[6]<ii  & BBFlagA[5]<ii  & BBFlagA[4]<ii  & BBFlagA[3]<ii & BBFlagA[2]<ii & BBFlagA[1]<ii & BBFlagA[0]<ii; //BB-A 0-9
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagA[7]<ii  & BBFlagA[6]<ii  & BBFlagA[5]<ii  & BBFlagA[4]<ii  & BBFlagA[3]<ii; //BB-A 3-7
         }
         if (v0variation == 0 ||v0variation == 2) if (flagvariation == 0 || flagvariation == 1){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagC[9]<ii & BBFlagC[8]<ii & BBFlagC[7]<ii  & BBFlagC[6]<ii  & BBFlagC[5]<ii  & BBFlagC[4]<ii & BBFlagC[3]<ii & BBFlagC[2]<ii & BBFlagC[1]<ii & BBFlagC[0]<ii; //BB-C 0-9
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagC[7]<ii  & BBFlagC[6]<ii  & BBFlagC[5]<ii  & BBFlagC[4]<ii  & BBFlagC[3]<ii; //BB-C 3-7
         }
     }
     
-    //Bunch range 1-9 and 11-19
+    //Bunch range 3-8 and 11-17
     else if (bunchrange == 1){
         if (v0variation == 0 || v0variation == 1) if (flagvariation == 0 || flagvariation == 2){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] = BGFlagA[11]<ii & BGFlagA[12]<ii & BGFlagA[13]<ii & BGFlagA[14]<ii & BGFlagA[15]<ii & BGFlagA[16]<ii & BGFlagA[17]<ii & BGFlagA[18]<ii & BGFlagA[19]<ii;//BG-A 11-19
+            SelGoodEvent[bunchrange][v0variation][flagvariation] = BGFlagA[11]<ii & BGFlagA[12]<ii & BGFlagA[13]<ii & BGFlagA[14]<ii & BGFlagA[15]<ii & BGFlagA[16]<ii & BGFlagA[17]<ii;//BG-A 11-17
         }
         if (v0variation == 0) if (flagvariation == 0 || flagvariation == 2){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BGFlagC[11]<ii & BGFlagC[12]<ii & BGFlagC[13]<ii & BGFlagC[14]<ii & BGFlagC[15]<ii & BGFlagC[16]<ii & BGFlagC[17]<ii & BGFlagC[18]<ii & BGFlagC[19]<ii; //BG-C 11-19
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BGFlagC[11]<ii & BGFlagC[12]<ii & BGFlagC[13]<ii & BGFlagC[14]<ii & BGFlagC[15]<ii & BGFlagC[16]<ii & BGFlagC[17]<ii; //BG-C 11-17
         }
         if (v0variation == 2) if (flagvariation == 0 || flagvariation == 2){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] = BGFlagC[11]<ii & BGFlagC[12]<ii & BGFlagC[13]<ii & BGFlagC[14]<ii & BGFlagC[15]<ii & BGFlagC[16]<ii & BGFlagC[17]<ii & BGFlagC[18]<ii & BGFlagC[19]<ii; //BG-C 11-19 for the first loop
+            SelGoodEvent[bunchrange][v0variation][flagvariation] = BGFlagC[11]<ii & BGFlagC[12]<ii & BGFlagC[13]<ii & BGFlagC[14]<ii & BGFlagC[15]<ii & BGFlagC[16]<ii & BGFlagC[17]<ii; //BG-C 11-17 for the first loop
         }
         if (v0variation == 0 ||v0variation == 1) if (flagvariation == 0 || flagvariation == 2){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BGFlagA[9]<ii & BGFlagA[8]<ii & BGFlagA[7]<ii  & BGFlagA[6]<ii  & BGFlagA[5]<ii  & BGFlagA[4]<ii & BGFlagA[3]<ii & BGFlagA[2]<ii & BGFlagA[1]<ii; //BG-A 1-9
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BGFlagA[8]<ii & BGFlagA[7]<ii  & BGFlagA[6]<ii  & BGFlagA[5]<ii  & BGFlagA[4]<ii  & BGFlagA[3]<ii; //BG-A 3-8
         }
         if (v0variation == 0 ||v0variation == 2) if (flagvariation == 0 || flagvariation == 2){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BGFlagC[9]<ii & BGFlagC[8]<ii & BGFlagC[7]<ii  & BGFlagC[6]<ii  & BGFlagC[5]<ii  & BGFlagC[4]<ii & BGFlagC[3]<ii & BGFlagC[2]<ii & BGFlagC[1]<ii; //BG-C 1-9
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BGFlagC[8]<ii & BGFlagC[7]<ii  & BGFlagC[6]<ii  & BGFlagC[5]<ii  & BGFlagC[4]<ii  & BGFlagC[3]<ii; //BG-C 3-8
         }
         if (v0variation == 0 ||v0variation == 1) if (flagvariation == 0){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagA[11]<ii & BBFlagA[12]<ii & BBFlagA[13]<ii & BBFlagA[14]<ii & BBFlagA[15]<ii & BBFlagA[16]<ii & BBFlagA[17]<ii & BBFlagA[18]<ii & BBFlagA[19]<ii; //BB-A 11-19
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagA[11]<ii & BBFlagA[12]<ii & BBFlagA[13]<ii & BBFlagA[14]<ii & BBFlagA[15]<ii & BBFlagA[16]<ii & BBFlagA[17]<ii; //BB-A 11-17
         }
         if (v0variation == 0 ||v0variation == 1) if (flagvariation == 1){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] = BBFlagA[11]<ii & BBFlagA[12]<ii & BBFlagA[13]<ii & BBFlagA[14]<ii & BBFlagA[15]<ii & BBFlagA[16]<ii & BBFlagA[17]<ii & BBFlagA[18]<ii & BBFlagA[19]<ii; //BB-A 11-19 for the first loop
+            SelGoodEvent[bunchrange][v0variation][flagvariation] = BBFlagA[11]<ii & BBFlagA[12]<ii & BBFlagA[13]<ii & BBFlagA[14]<ii & BBFlagA[15]<ii & BBFlagA[16]<ii & BBFlagA[17]<ii; //BB-A 11-17 for the first loop
         }
         if (v0variation == 0 ) if (flagvariation == 0 || flagvariation == 1){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagC[11]<ii & BBFlagC[12]<ii & BBFlagC[13]<ii & BBFlagC[14]<ii & BBFlagC[15]<ii & BBFlagC[16]<ii & BBFlagC[17]<ii & BBFlagC[18]<ii & BBFlagC[19]<ii; //BB-C 11-19
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagC[11]<ii & BBFlagC[12]<ii & BBFlagC[13]<ii & BBFlagC[14]<ii & BBFlagC[15]<ii & BBFlagC[16]<ii & BBFlagC[17]<ii; //BB-C 11-17
         }
         if (v0variation == 2) if (flagvariation == 0){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagC[11]<ii & BBFlagC[12]<ii & BBFlagC[13]<ii & BBFlagC[14]<ii & BBFlagC[15]<ii & BBFlagC[16]<ii & BBFlagC[17]<ii & BBFlagC[18]<ii & BBFlagC[19]<ii; //BB-C 11-19
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagC[11]<ii & BBFlagC[12]<ii & BBFlagC[13]<ii & BBFlagC[14]<ii & BBFlagC[15]<ii & BBFlagC[16]<ii & BBFlagC[17]<ii; //BB-C 11-17
         }
         if (v0variation == 2) if (flagvariation == 1){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] = BBFlagC[11]<ii & BBFlagC[12]<ii & BBFlagC[13]<ii & BBFlagC[14]<ii & BBFlagC[15]<ii & BBFlagC[16]<ii & BBFlagC[17]<ii & BBFlagC[18]<ii & BBFlagC[19]<ii; //BB-C 11-19
+            SelGoodEvent[bunchrange][v0variation][flagvariation] = BBFlagC[11]<ii & BBFlagC[12]<ii & BBFlagC[13]<ii & BBFlagC[14]<ii & BBFlagC[15]<ii & BBFlagC[16]<ii & BBFlagC[17]<ii; //BB-C 11-17
         }
         if (v0variation == 0 ||v0variation == 1) if (flagvariation == 0 || flagvariation == 1){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagA[9]<ii & BBFlagA[8]<ii & BBFlagA[7]<ii  & BBFlagA[6]<ii  & BBFlagA[5]<ii  & BBFlagA[4]<ii  & BBFlagA[3]<ii & BBFlagA[2]<ii & BBFlagA[1]<ii; //BB-A 1-9
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagA[8]<ii & BBFlagA[7]<ii  & BBFlagA[6]<ii  & BBFlagA[5]<ii  & BBFlagA[4]<ii  & BBFlagA[3]<ii; //BB-A 3-8
         }
         if (v0variation == 0 ||v0variation == 2) if (flagvariation == 0 || flagvariation == 1){
-            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagC[9]<ii & BBFlagC[8]<ii & BBFlagC[7]<ii  & BBFlagC[6]<ii  & BBFlagC[5]<ii  & BBFlagC[4]<ii & BBFlagC[3]<ii & BBFlagC[2]<ii & BBFlagC[1]<ii; //BB-C 1-9
+            SelGoodEvent[bunchrange][v0variation][flagvariation] &= BBFlagC[8]<ii & BBFlagC[7]<ii  & BBFlagC[6]<ii  & BBFlagC[5]<ii  & BBFlagC[4]<ii  & BBFlagC[3]<ii; //BB-C 3-8
         }
     }
     
