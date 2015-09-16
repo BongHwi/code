@@ -137,7 +137,7 @@ AliAnalysisGrid* CreateAlienHandler(TString pluginmode="test",
     plugin->SetNrunsPerMaster(nruns);
     
     // Define alien work directory where all files will be copied. Relative to alien $HOME.
-    plugin->SetGridWorkingDir("LHC15f_Run225763/BCwindowchange_Modified_slope_v0flags");
+    plugin->SetGridWorkingDir("LHC15f_Run225763/BCwindowchange_AddSlopeDefault_Modified_also_v0flag");
     plugin->SetGridOutputDir("output");
     plugin->AddIncludePath("-I. -I$ROOTSYS/include -I$ALICE_ROOT -I$ALICE_ROOT/include -I$ALICE_ROOT/CONTAINERS -I$ALICE_ROOT/STEER -I$ALICE_ROOT/TOF -I$ALICE_ROOT/macros -I$ALICE_ROOT/ANALYSIS -I$ALICE_PHYSICS -I$ALICE_PHYSICS/include");
     
