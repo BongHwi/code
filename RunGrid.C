@@ -1,4 +1,4 @@
-void RunGrid(const char* pluginmode = "full", Bool_t theMCon=kFALSE, Bool_t UseTree=kFALSE) {
+void RunGrid(const char* pluginmode = "terminate", Bool_t theMCon=kFALSE, Bool_t UseTree=kFALSE) {
     // Load Libraries.
     gSystem->SetIncludePath("-I. -I$ALICE_ROOT -I$ALICE_ROOT/include -I$ALICE_PHYSICS -I$ALICE_PHYSICS/include -I$ALICE_ROOT/STEER -I$ALICE_ROOT/ANALYSIS -g");
     // load base root libraries
