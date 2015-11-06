@@ -23,8 +23,8 @@ class AliAnalysisBGMonitorQA : public AliAnalysisTaskSE {
   virtual void   Terminate(Option_t *);
 
     
-  virtual void SelectGoodEventWithV0Variation(Int_t bunchrange, Int_t v0variation ,Int_t flagvariation, Int_t ii); // add function to select good event with 3 types of variation  2015.08.12. (blim)
-  virtual void SelectADGoodEventWithV0Variation(Int_t bunchrange, Int_t v0variation ,Int_t flagvariation, Int_t ii); // add function to select good event with 3 types of variation in AD 2015.08.12. (blim)
+//  virtual void SelectGoodEventWithV0Variation(Int_t bunchrange, Int_t v0variation ,Int_t flagvariation, Int_t ii); // add function to select good event with 3 types of variation  2015.08.12. (blim)
+//  virtual void SelectADGoodEventWithV0Variation(Int_t bunchrange, Int_t v0variation ,Int_t flagvariation, Int_t ii); // add function to select good event with 3 types of variation in AD 2015.08.12. (blim)
 
  // virtual void   Terminate(Option_t *);
     
