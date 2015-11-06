@@ -59,7 +59,7 @@ Int_t ADBGFlagA[20];
 Int_t ADBGFlagC[20];
 Int_t ADBBFlagA[20];
 Int_t ADBBFlagC[20];
-Int_t bunchinputarray[7] = {201};  // the output file which we interested in. 2015.08.20. (blim)
+//Int_t bunchinputarray[7] = {201};  // the output file which we interested in. 2015.08.20. (blim)
 //________________________________________________________________________
 AliAnalysisBGMonitorQA::AliAnalysisBGMonitorQA(const char *name) :
 AliAnalysisTaskSE(name),
@@ -294,8 +294,8 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
         for(int j=0; j<3; j++){
             for(int k=0; k<3; k++){
                 Int_t check000 = i*100+j*10+k;
-                for ( int l=0; l<8;l++){
-                    if(check000==bunchinputarray[l]){
+                //for ( int l=0; l<8;l++){
+                    if(check000==201){
                         
                         hNumEffPurityBC[i][j][k] = new TH1F(Form("hNumEffPurityBC%d_V0%d_Flag%d",i,j,k),"; #V0flags in PF", 35, 0, 35);
                         hDenomEffBC[i][j][k] = new TH1F(Form("hDenomEffBC%d_V0%d_Flag%d",i,j,k),"; #V0flags in PF", 35, 0, 35);
@@ -476,7 +476,7 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
                         
                         
                     }
-                }
+                //}
             }
         }
         
@@ -803,8 +803,8 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                 for(int j=0; j<3; j++){
                     for(int k=0; k<3; k++){
                         Int_t check000 = i*100+j*10+k;
-                        for ( int l=0; l<8;l++){
-                            if(check000==bunchinputarray[l]){
+                        //for ( int l=0; l<8;l++){
+                            if(check000==201){
                                 if(SelGoodEvent[i][j][k]) {
                                     ((TH1F*)fList->FindObject(Form("hDenomPurityBC%d_V0%d_Flag%d",i,j,k)))->Fill(ii-1);
                                 }
@@ -848,7 +848,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                                     }
                                 }
                             }
-                        }
+                        //}
                     }
                 }
             } // end of fill histograms
@@ -903,8 +903,8 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                 for(int j=0; j<3; j++){
                     for(int k=0; k<3; k++){
                         Int_t check000 = i*100+j*10+k;
-                        for ( int l=0; l<8;l++){
-                            if(check000==bunchinputarray[l]){
+                        //for ( int l=0; l<8;l++){
+                            if(check000==201){
                                 
                                 //cout<< "AD i  = " <<i<<", AD j   = "<<j<< ",   AD k  = " <<k<<endl;
                                 
@@ -930,7 +930,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                                     }
                                 }
                             }
-                        }
+                        //}
                         
                     }
                 }
@@ -1001,8 +1001,8 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                 for(int j=0; j<3; j++){
                     for(int k=0; k<3; k++){
                         Int_t check000 = i*100+j*10+k;
-                        for ( int l=0; l<8;l++){
-                            if(check000==bunchinputarray[l]){
+                        //for ( int l=0; l<8;l++){
+                            if(check000==201){
                                 if(SelGoodEvent[i][j][k]) {
                                     ((TH1F*)fList2->FindObject(Form("hDenomPurityBC_HM%d_V0%d_Flag%d",i,j,k)))->Fill(ii-1);
                                 }
@@ -1046,7 +1046,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                                     }
                                 }
                             }
-                        }
+                        //}
                     }
                 }
             } // end of fill histograms
@@ -1099,8 +1099,8 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                 for(int j=0; j<3; j++){
                     for(int k=0; k<3; k++){
                         Int_t check000 = i*100+j*10+k;
-                        for ( int l=0; l<8;l++){
-                            if(check000==bunchinputarray[l]){
+                        //for ( int l=0; l<8;l++){
+                            if(check000==201){
                                 
                                 //cout<< "AD i  = " <<i<<", AD j   = "<<j<< ",   AD k  = " <<k<<endl;
                                 
@@ -1126,7 +1126,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                                     }
                                 }
                             }
-                        }
+                        //}
                         
                     }
                 }
