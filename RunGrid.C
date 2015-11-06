@@ -109,15 +109,15 @@ AliAnalysisGrid* CreateAlienHandler(TString pluginmode="test",
     // Set data search pattern for DATA
     //************************************************
     
-    plugin->SetGridDataDir("/alice/data/2015/LHC15f/"); // specify LHC period
+    plugin->SetGridDataDir("/alice/data/2015/LHC15i/"); // specify LHC period
     //225582   plugin->SetDataPattern("pass1/*ESDs.root"); // specify reco pass and AOD set
-    plugin->SetDataPattern("pass2/*ESDs.root"); // specify reco pass and AOD set
+    plugin->SetDataPattern("muon_calo_pass1/*ESDs.root"); // specify reco pass and AOD set
     plugin->SetRunPrefix("000");   // real data
     Int_t nruns = 0;
     
     
     //  plugin->AddRunNumber(226062); // data only
-    //    plugin->AddRunNumber(226532); // data only
+//        plugin->AddRunNumber(226532); // data only
     
     //    nruns++;
     //    plugin->AddRunNumber(226085); // data only
@@ -125,10 +125,10 @@ AliAnalysisGrid* CreateAlienHandler(TString pluginmode="test",
     //    plugin->AddRunNumber(226551); // data only
     
     //    nruns++;
-        plugin->AddRunNumber(225763); // data only
+//        plugin->AddRunNumber(225763); // data only
     
 //        nruns++;
-//    plugin->AddRunNumber(235226); // data only
+    plugin->AddRunNumber(235685); // data only
     
     
     nruns++;
@@ -137,7 +137,7 @@ AliAnalysisGrid* CreateAlienHandler(TString pluginmode="test",
     plugin->SetNrunsPerMaster(nruns);
     
     // Define alien work directory where all files will be copied. Relative to alien $HOME.
-    plugin->SetGridWorkingDir("LHC15f_Run225763/Modified_slope_v0flags");
+    plugin->SetGridWorkingDir("LHC15f_Run235685/");
     plugin->SetGridOutputDir("output");
     plugin->AddIncludePath("-I. -I$ROOTSYS/include -I$ALICE_ROOT -I$ALICE_ROOT/include -I$ALICE_ROOT/CONTAINERS -I$ALICE_ROOT/STEER -I$ALICE_ROOT/TOF -I$ALICE_ROOT/macros -I$ALICE_ROOT/ANALYSIS -I$ALICE_PHYSICS -I$ALICE_PHYSICS/include");
     
