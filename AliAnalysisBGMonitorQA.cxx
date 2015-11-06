@@ -59,7 +59,7 @@ Int_t ADBGFlagA[20];
 Int_t ADBGFlagC[20];
 Int_t ADBBFlagA[20];
 Int_t ADBBFlagC[20];
-Int_t bunchinputarray[7] = {001,101,200,201,202,211,221};  // the output file which we interested in. 2015.08.20. (blim)
+Int_t bunchinputarray[7] = {201};  // the output file which we interested in. 2015.08.20. (blim)
 //________________________________________________________________________
 AliAnalysisBGMonitorQA::AliAnalysisBGMonitorQA(const char *name) :
 AliAnalysisTaskSE(name),
@@ -767,7 +767,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
         
         for(Int_t ii=1; ii<33; ii++){
             
-            
+            /**
             //___________ modified method 2015.08.12.(blim)
             for (Int_t windowvar=0; windowvar<3; windowvar++) {
                 for (Int_t flagvar=0; flagvar<3; flagvar++) {
@@ -776,9 +776,16 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                     }
                 }
             }
-            
             //___________
-            
+			**/ // Since the condition is fixed, this part isn't needed 2015.11.06. blim
+
+            //Flag variation : BB// Bunch range 3-9, V0 : V0AC, Flag : BB
+            SelGoodEvent[2][0][1] = BBFlagA[11]<ii & BBFlagA[12]<ii & BBFlagA[13]<ii & BBFlagA[14]<ii & BBFlagA[15]<ii & BBFlagA[16]<ii & BBFlagA[17]<ii;
+            SelGoodEvent[2][0][1] &= BBFlagC[11]<ii & BBFlagC[12]<ii & BBFlagC[13]<ii & BBFlagC[14]<ii & BBFlagC[15]<ii & BBFlagC[16]<ii & BBFlagC[17]<ii;
+            SelGoodEvent[2][0][1] &= BBFlagA[9]<ii  &  BBFlagA[8]<ii  & BBFlagA[7]<ii  & BBFlagA[6]<ii  & BBFlagA[5]<ii  & BBFlagA[4]<ii  & BBFlagA[3]<ii;
+            SelGoodEvent[2][0][1] &= BBFlagC[9]<ii  &  BBFlagC[8]<ii  & BBFlagC[7]<ii  & BBFlagC[6]<ii  & BBFlagC[5]<ii  & BBFlagC[4]<ii  & BBFlagC[3]<ii;
+			//
+            /*
             double check1=0;
             double check2=0;
             double check3=0;
@@ -786,7 +793,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
             if(SelGoodEvent[2][2][1]) check2++;
             if(SelGoodEvent[2][2][2]) check3++;
             
-            /*
+            
              cout<< "3-9, v0a+c , bb = " <<SelGoodEvent[2][0][1]<<",  num 1 = "<<check1<<endl;
              cout<< "3-9, v0c , bb = " <<SelGoodEvent[2][2][1]<<",  num 2 = "<<check2<<endl;
              cout<< "3-9, v0c , bg = " <<SelGoodEvent[2][2][2]<<",  num 3 = "<<check3<<endl;
@@ -860,6 +867,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
          */
         for(Int_t ii=1; ii<9; ii++){
             
+            /*
             //___________ modified method 2015.08.12.(blim)
             for (Int_t windowvar=0; windowvar<3; windowvar++) {
                 for (Int_t flagvar=0; flagvar<3; flagvar++) {
@@ -869,8 +877,15 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                 }
             }
             //___________
+			*/
+
+            //Flag variation : BB// Bunch range 3-9, V0 : V0AC, Flag : BB
+            SelGoodEventAD[2][0][1] = ADBBFlagA[11]<ii & ADBBFlagA[12]<ii & ADBBFlagA[13]<ii & ADBBFlagA[14]<ii & ADBBFlagA[15]<ii & ADBBFlagA[16]<ii & ADBBFlagA[17]<ii;
+            SelGoodEventAD[2][0][1] &= ADBBFlagC[11]<ii & ADBBFlagC[12]<ii & ADBBFlagC[13]<ii & ADBBFlagC[14]<ii & ADBBFlagC[15]<ii & ADBBFlagC[16]<ii & ADBBFlagC[17]<ii;
+            SelGoodEventAD[2][0][1] &= ADBBFlagA[9]<ii  &  ADBBFlagA[8]<ii  & ADBBFlagA[7]<ii  & ADBBFlagA[6]<ii  & ADBBFlagA[5]<ii  & ADBBFlagA[4]<ii  & ADBBFlagA[3]<ii;
+            SelGoodEventAD[2][0][1] &= ADBBFlagC[9]<ii  &  ADBBFlagC[8]<ii  & ADBBFlagC[7]<ii  & ADBBFlagC[6]<ii  & ADBBFlagC[5]<ii  & ADBBFlagC[4]<ii  & ADBBFlagC[3]<ii;
             
-            
+            /*
             double adcheck1=0;
             double adcheck2=0;
             double adcheck3=0;
@@ -878,7 +893,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
             if(SelGoodEventAD[2][2][1]) adcheck2++;
             if(SelGoodEventAD[2][2][2]) adcheck3++;
             
-            /*
+            
              cout<< "AD ===3-9, v0c , bb+bg = " <<SelGoodEventAD[2][2][0]<<",  num 1 = "<<adcheck1<<endl;
              cout<< "AD ===3-9, v0c , bb = " <<SelGoodEventAD[2][2][1]<<",  num 2 = "<<adcheck2<<endl;
              cout<< "AD ===3-9, v0c , bg = " <<SelGoodEventAD[2][2][2]<<",  num 3 = "<<adcheck3<<endl;
@@ -951,7 +966,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
         
         for(Int_t ii=1; ii<33; ii++){
             
-            
+            /**
             //___________ modified method 2015.08.12.(blim)
             for (Int_t windowvar=0; windowvar<3; windowvar++) {
                 for (Int_t flagvar=0; flagvar<3; flagvar++) {
@@ -959,8 +974,14 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                         SelectGoodEventWithV0Variation(windowvar,v0var,flagvar,ii);
                     }
                 }
-            }
+            }**/ // Since the condition is fixed, this part isn't needed 2015.11.06. blim
+            //Flag variation : BB// Bunch range 3-9, V0 : V0AC, Flag : BB
+            SelGoodEvent[2][0][1] = BBFlagA[11]<ii & BBFlagA[12]<ii & BBFlagA[13]<ii & BBFlagA[14]<ii & BBFlagA[15]<ii & BBFlagA[16]<ii & BBFlagA[17]<ii;
+            SelGoodEvent[2][0][1] &= BBFlagC[11]<ii & BBFlagC[12]<ii & BBFlagC[13]<ii & BBFlagC[14]<ii & BBFlagC[15]<ii & BBFlagC[16]<ii & BBFlagC[17]<ii;
+            SelGoodEvent[2][0][1] &= BBFlagA[9]<ii  &  BBFlagA[8]<ii  & BBFlagA[7]<ii  & BBFlagA[6]<ii  & BBFlagA[5]<ii  & BBFlagA[4]<ii  & BBFlagA[3]<ii;
+            SelGoodEvent[2][0][1] &= BBFlagC[9]<ii  &  BBFlagC[8]<ii  & BBFlagC[7]<ii  & BBFlagC[6]<ii  & BBFlagC[5]<ii  & BBFlagC[4]<ii  & BBFlagC[3]<ii;
             
+
             //___________
             /*
              double check1=0;
@@ -1043,7 +1064,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
          } // show Flags 2015.08.17.(blim)
          */
         for(Int_t ii=1; ii<9; ii++){
-            
+            /*
             //___________ modified method 2015.08.12.(blim)
             for (Int_t windowvar=0; windowvar<3; windowvar++) {
                 for (Int_t flagvar=0; flagvar<3; flagvar++) {
@@ -1053,6 +1074,12 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
                 }
             }
             //___________
+            */
+            //Flag variation : BB// Bunch range 3-9, V0 : V0AC, Flag : BB
+            SelGoodEventAD[2][0][1] = ADBBFlagA[11]<ii & ADBBFlagA[12]<ii & ADBBFlagA[13]<ii & ADBBFlagA[14]<ii & ADBBFlagA[15]<ii & ADBBFlagA[16]<ii & ADBBFlagA[17]<ii;
+            SelGoodEventAD[2][0][1] &= ADBBFlagC[11]<ii & ADBBFlagC[12]<ii & ADBBFlagC[13]<ii & ADBBFlagC[14]<ii & ADBBFlagC[15]<ii & ADBBFlagC[16]<ii & ADBBFlagC[17]<ii;
+            SelGoodEventAD[2][0][1] &= ADBBFlagA[9]<ii  &  ADBBFlagA[8]<ii  & ADBBFlagA[7]<ii  & ADBBFlagA[6]<ii  & ADBBFlagA[5]<ii  & ADBBFlagA[4]<ii  & ADBBFlagA[3]<ii;
+            SelGoodEventAD[2][0][1] &= ADBBFlagC[9]<ii  &  ADBBFlagC[8]<ii  & ADBBFlagC[7]<ii  & ADBBFlagC[6]<ii  & ADBBFlagC[5]<ii  & ADBBFlagC[4]<ii  & ADBBFlagC[3]<ii;
             
             /*
              double adcheck1=0;
@@ -1192,7 +1219,7 @@ Bool_t IsItBGSPDClusterVsTracklet2(AliVEvent *event)
 
 
 //______________________
-
+/**
 void AliAnalysisBGMonitorQA::SelectGoodEventWithV0Variation(Int_t bunchrange, Int_t v0variation ,Int_t flagvariation, Int_t ii){
     
     
@@ -1444,3 +1471,4 @@ void AliAnalysisBGMonitorQA::SelectADGoodEventWithV0Variation(Int_t bunchrange, 
     }
     //    cout << "for " << ii << "loop, SelGoodEventAD[" << bunchrange << "][" << v0variation << "][" << flagvariation << "] = " << SelGoodEventAD[bunchrange][v0variation][flagvariation] << endl;
 }
+**/ // Since the condition is fixed, this part isn't needed 2015.11.06. blim
