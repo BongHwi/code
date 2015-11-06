@@ -100,7 +100,7 @@ AliAnalysisGrid* CreateAlienHandler(TString pluginmode="test",
     
     plugin->SetAliROOTVersion("v5-06-34");
     // plugin->SetAliPhysicsVersion("vAN-20150612");
-    plugin->SetAliPhysicsVersion("vAN-20150723");
+    plugin->SetAliPhysicsVersion("vAN-20151105-1");
     
     
     plugin->SetNtestFiles(1);
