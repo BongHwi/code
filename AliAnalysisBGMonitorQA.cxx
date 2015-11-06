@@ -59,7 +59,7 @@ Int_t ADBGFlagA[20];
 Int_t ADBGFlagC[20];
 Int_t ADBBFlagA[20];
 Int_t ADBBFlagC[20];
-Int_t bunchinputarray[7] = {001,101,200,201,202,211,221};  // the output file which we interested in. 2015.08.20. (blim)
+Int_t bunchinputarray[7] = {201};  // the output file which we interested in. 2015.08.20. (blim)
 //________________________________________________________________________
 AliAnalysisBGMonitorQA::AliAnalysisBGMonitorQA(const char *name) :
 AliAnalysisTaskSE(name),
