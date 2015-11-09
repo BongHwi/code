@@ -870,7 +870,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
             ((TH1F*)fList2->FindObject("hTrkVsClsSPIDSlopeM_HM"))->Fill(fSpdT, fSpdC1+fSpdC2); // bgID3->slope3
         }
         if (!bgID2) {
-            ((TH1F*)fList->FindObject("hTrkVsClsSPIDSlopeM_HM2"))->Fill(fSpdT, fSpdC1+fSpdC2); // bgID2
+            ((TH1F*)fList2->FindObject("hTrkVsClsSPIDSlopeM_HM2"))->Fill(fSpdT, fSpdC1+fSpdC2); // bgID2
         }
         
         
