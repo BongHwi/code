@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<alien>
+  <collection name="collection">
+    <event name="1">
+      <file name="AliESDs.root" aclId="" broken="0" ctime="2015-09-14 13:14:07" dir="168072196" entryId="168073080" expiretime="" gowner="alidaq" guid="A948F17C-5AD1-11E5-B50A-E72C069C2405" guidtime="11E55AD1" jobid="551531593" lfn="/alice/data/2015/LHC15i/000235685/muon_calo_pass1/15000235685020.100/AliESDs.root" md5="e7abd09cb6ebe2c65deb7aa69b8769a8" owner="alidaq" perm="755" replicated="0" selist="" size="7016504" turl="alien:///alice/data/2015/LHC15i/000235685/muon_calo_pass1/15000235685020.100/AliESDs.root" type="f" />
+    </event>
+    <info command="[/alice/cern.ch/user/b/blim/]: find -z -x collection -l 1 -o 0 /alice/data/2015/LHC15i//000235685 muon_calo_pass1/*ESDs.root" creator="admin" date="Mon Nov  9 14:24:14 CET 2015" timestamp="1447075454" />
+  </collection>
+</alien>
+

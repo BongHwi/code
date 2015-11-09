@@ -1,0 +1,6 @@
+TaskAAbg.sh: line 19: free: command not found
+Error in <TMacOSXSystem::DynamicPathName>: libgapiUI.so does not exist in .:::.:/Users/bong/alicesw/root/v5-34-30/inst/lib::/Users/bong/alicesw/root/v5-34-30/inst/lib/cint/cint/stl
+Error in <P010_TAlien>: Please fix your loader path environment variable to be able to load libRAliEn.so
+TaskAAbg.sh: line 40: free: command not found
+Output file AnalysisResults.root not found. Job FAILED !
+Output files were not validated by the analysis manager
