@@ -273,6 +273,17 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
     hTrkVsClsSPIDSlopeM_HM->GetXaxis()->SetTitle("Tracklet");
     hTrkVsClsSPIDSlopeM_HM->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
     fList2->Add(hTrkVsClsSPIDSlopeM_HM); //add new List for both result 2015.08.20. (blim)
+
+    
+    TH2F *hTrkVsClsSPIDSlopeM2 = new TH2F("hTrkVsClsSPIDSlopeM2","; Spd : total",140,0,140,500,0,500);
+    hTrkVsClsSPIDSlopeM->GetXaxis()->SetTitle("Tracklet");
+    hTrkVsClsSPIDSlopeM->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
+    fList->Add(hTrkVsClsSPIDSlopeM2);
+    
+    TH2F *hTrkVsClsSPIDSlopeM_HM2 = new TH2F("hTrkVsClsSPIDSlopeM_HM2","; Spd : total",140,0,140,500,0,500);
+    hTrkVsClsSPIDSlopeM_HM->GetXaxis()->SetTitle("Tracklet");
+    hTrkVsClsSPIDSlopeM_HM->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
+    fList2->Add(hTrkVsClsSPIDSlopeM_HM2); //add new List for both result 2015.11.09. (blim)
     
     for(int i=0; i<3; i++){
         for(int j=0; j<3; j++){
@@ -485,8 +496,8 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     //    bgID = utils->IsSPDClusterVsTrackletBG(fESD);
     
     // modified slope cut. the function is in below of this source(blim)
-    //bgID = IsItBGSPDClusterVsTracklet(fESD); // original modified function
-    bgID = IsItBGSPDClusterVsTracklet2(fESD); // modified modified function
+    bgID = IsItBGSPDClusterVsTracklet(fESD); // original modified function
+    bgID2 = IsItBGSPDClusterVsTracklet2(fESD); // modified modified function
     
     spdPileUp = utils->IsPileUpSPD(fESD);
     spdPileUpOutOfBunch = utils->IsOutOfBunchPileUp(fESD);
@@ -687,9 +698,11 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
         
         // Modified Cut result, added by blim
         if (!bgID) {
-            ((TH1F*)fList->FindObject("hTrkVsClsSPIDSlopeM"))->Fill(fSpdT, fSpdC1+fSpdC2); // bgID3->slope3
+            ((TH1F*)fList->FindObject("hTrkVsClsSPIDSlopeM"))->Fill(fSpdT, fSpdC1+fSpdC2); // bgID
         }
-        
+        if (!bgID) {
+            ((TH1F*)fList->FindObject("hTrkVsClsSPIDSlopeM2"))->Fill(fSpdT, fSpdC1+fSpdC2); // bgID2
+        }
         
         for(Int_t ii=1; ii<33; ii++){
             
@@ -855,6 +868,9 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
         // Modified Cut result, added by blim
         if (!bgID) {
             ((TH1F*)fList2->FindObject("hTrkVsClsSPIDSlopeM_HM"))->Fill(fSpdT, fSpdC1+fSpdC2); // bgID3->slope3
+        }
+        if (!bgID) {
+            ((TH1F*)fList->FindObject("hTrkVsClsSPIDSlopeM_HM2"))->Fill(fSpdT, fSpdC1+fSpdC2); // bgID2
         }
         
         
