@@ -276,13 +276,13 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
 
     
     TH2F *hTrkVsClsSPIDSlopeM2 = new TH2F("hTrkVsClsSPIDSlopeM2","; Spd : total",140,0,140,500,0,500);
-    hTrkVsClsSPIDSlopeM->GetXaxis()->SetTitle("Tracklet");
-    hTrkVsClsSPIDSlopeM->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
+    hTrkVsClsSPIDSlopeM2->GetXaxis()->SetTitle("Tracklet");
+    hTrkVsClsSPIDSlopeM2->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
     fList->Add(hTrkVsClsSPIDSlopeM2);
     
     TH2F *hTrkVsClsSPIDSlopeM_HM2 = new TH2F("hTrkVsClsSPIDSlopeM_HM2","; Spd : total",140,0,140,500,0,500);
-    hTrkVsClsSPIDSlopeM_HM->GetXaxis()->SetTitle("Tracklet");
-    hTrkVsClsSPIDSlopeM_HM->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
+    hTrkVsClsSPIDSlopeM_HM2->GetXaxis()->SetTitle("Tracklet");
+    hTrkVsClsSPIDSlopeM_HM2->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
     fList2->Add(hTrkVsClsSPIDSlopeM_HM2); //add new List for both result 2015.11.09. (blim)
     
     for(int i=0; i<3; i++){
