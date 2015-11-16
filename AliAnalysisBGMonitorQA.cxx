@@ -186,7 +186,7 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
     
     
     
-    
+    runNumber = fESD->GetRunNumber();// get a run number to add it to the hist. 2015.11.16. (blim)
     
     TH1F *hNumEffPurityBC[3][3][3];
     TH1F *hDenomEffBC[3][3][3];
@@ -228,7 +228,7 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
     TH2F *hDenomAD_HM[3][3][3];
     //______________________________
     
-    TH2F *hTotalTrkVsClsSPID = new TH2F("hTotalTrkVsClsSPID","; Spd : total",140,0,140,500,0,500);
+    TH2F *hTotalTrkVsClsSPID = new TH2F(Form("%dhTotalTrkVsClsSPID",runNumber),"; Spd : total",140,0,140,500,0,500);
     hTotalTrkVsClsSPID->GetXaxis()->SetTitle("Tracklet");
     hTotalTrkVsClsSPID->GetYaxis()->SetTitle("Cluster (fspdC1+fspdC2)");
     fList->Add(hTotalTrkVsClsSPID);
