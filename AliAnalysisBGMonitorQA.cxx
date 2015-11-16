@@ -187,6 +187,7 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
     
     
     runNumber = fESD->GetRunNumber();// get a run number to add it to the hist. 2015.11.16. (blim)
+    cout << "get runNum" << runNumber << endl;
     
     TH1F *hNumEffPurityBC[3][3][3];
     TH1F *hDenomEffBC[3][3][3];
