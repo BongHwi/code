@@ -3,25 +3,25 @@ Jobtag = {
 };
 # Input xml collections
 InputDataCollection = {
-   "LF:/alice/cern.ch/user/b/blim/LHC15i_Run235226/BCwindowchange_Modified_slope/$1,nodownload"
+   "LF:/alice/cern.ch/user/b/blim/LHC15i_Run235226/test_result/$1,nodownload"
 };
 # Output directory
-OutputDir = "/alice/cern.ch/user/b/blim//LHC15i_Run235226/BCwindowchange_Modified_slope/output/$2/#alien_counter_03i#";
+OutputDir = "/alice/cern.ch/user/b/blim//LHC15i_Run235226/test_result/output/$2/#alien_counter_03i#";
 # List of requested packagesList of requested packages
 Packages = {
    "VO_ALICE@AliRoot::v5-06-34",
-   "VO_ALICE@AliPhysics::vAN-20150723",
+   "VO_ALICE@AliPhysics::v5-06-34-01",
    "VO_ALICE@APISCONFIG::V1.1x"
 };
 # List of input files to be uploaded to workers
 InputFile = {
-   "LF:/alice/cern.ch/user/b/blim/LHC15i_Run235226/BCwindowchange_Modified_slope/TaskAAbg.C",
-   "LF:/alice/cern.ch/user/b/blim/LHC15i_Run235226/BCwindowchange_Modified_slope/TaskAAbg.root",
-   "LF:/alice/cern.ch/user/b/blim/LHC15i_Run235226/BCwindowchange_Modified_slope/AliAnalysisBGMonitorQA.h",
-   "LF:/alice/cern.ch/user/b/blim/LHC15i_Run235226/BCwindowchange_Modified_slope/AliAnalysisBGMonitorQA.cxx"
+   "LF:/alice/cern.ch/user/b/blim/LHC15i_Run235226/test_result/TaskAAbg.C",
+   "LF:/alice/cern.ch/user/b/blim/LHC15i_Run235226/test_result/TaskAAbg.root",
+   "LF:/alice/cern.ch/user/b/blim/LHC15i_Run235226/test_result/AliAnalysisBGMonitorQA.h",
+   "LF:/alice/cern.ch/user/b/blim/LHC15i_Run235226/test_result/AliAnalysisBGMonitorQA.cxx"
 };
 # This is the startup script
-Executable = "/alice/cern.ch/user/b/blim/LHC15i_Run235226/BCwindowchange_Modified_slope/TaskAAbg.sh";
+Executable = "/alice/cern.ch/user/b/blim/LHC15i_Run235226/test_result/TaskAAbg.sh";
 # We split per SE or file
 Split = "se";
 # Time after which the job is killed (1200 min.)
@@ -41,7 +41,7 @@ Output = {
 # AliEn price for this job
 Price = "1";
 # Validation script to be run for each subjob
-Validationcommand = "/alice/cern.ch/user/b/blim/LHC15i_Run235226/BCwindowchange_Modified_slope/TaskAAbg_validation.sh";
+Validationcommand = "/alice/cern.ch/user/b/blim/LHC15i_Run235226/test_result/TaskAAbg_validation.sh";
 User = "blim";
 
 # JDL variables

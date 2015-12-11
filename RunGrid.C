@@ -1,4 +1,4 @@
-void RunGrid(const char* pluginmode = "test", Bool_t theMCon=kFALSE, Bool_t UseTree=kFALSE) {
+void RunGrid(const char* pluginmode = "local", Bool_t theMCon=kFALSE, Bool_t UseTree=kFALSE) {
     // Load Libraries.
     gSystem->SetIncludePath("-I. -I$ALICE_ROOT -I$ALICE_ROOT/include -I$ALICE_PHYSICS -I$ALICE_PHYSICS/include -I$ALICE_ROOT/STEER -I$ALICE_ROOT/ANALYSIS -g");
     // load base root libraries
@@ -36,6 +36,14 @@ void RunGrid(const char* pluginmode = "test", Bool_t theMCon=kFALSE, Bool_t UseT
     // Use AliRoot includes to compile our task
     gROOT->ProcessLine(".include $ALICE_ROOT/include");
     gROOT->ProcessLine(".include $ALICE_PHYSICS/include");
+    
+    
+    //__________________________________________________________________________
+    if(pluginmode=="local") {// Local mode
+        chain = CreateChain("filelist.txt");
+    }
+    
+    
     
     
     //__________________________________________________________________________

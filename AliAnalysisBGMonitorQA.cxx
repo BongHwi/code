@@ -185,9 +185,8 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
     }
     
     
-//    Int_t runNumber;
-//    runNumber = fESD->GetRunNumber();// get a run number to add it to the hist. 2015.11.16. (blim)
-//    cout << "get runNum" << runNumber << endl;
+    
+    
     
     TH1F *hNumEffPurityBC[3][3][3];
     TH1F *hDenomEffBC[3][3][3];
@@ -227,6 +226,14 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
     TH2F *hADNumTrkVsClsSPD_HM[3][3][3];
     TH2F *hNumAD_HM[3][3][3];
     TH2F *hDenomAD_HM[3][3][3];
+    //______________________________
+    
+    
+    
+    TH1F *runNumber_hist;
+    fList->Add(runNumber_hist);
+    TH1F *runNumber_hist_HM;
+    fList2->Add(runNumber_hist_HM);
     //______________________________
     
     TH2F *hTotalTrkVsClsSPID = new TH2F("hTotalTrkVsClsSPID","; Spd : total",140,0,140,500,0,500);
@@ -440,6 +447,10 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     Int_t iEv= 0;
     iEv = fESD->GetEventNumberInFile();
     runNumber = fESD->GetRunNumber();
+    
+    ((TH1F*)fList->FindObject(runNumber_hist))->SetBinContent(1,runNumber);
+    ((TH1F*)fList2->FindObject(runNumber_hist_HM))->SetBinContent(1,runNumber);
+    
     UInt_t timeGDC=fESD->GetTimeStamp();
     ftime=timeGDC;
     Int_t timeStampBX = fESD->GetBunchCrossNumber();
