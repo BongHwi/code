@@ -1,4 +1,4 @@
-void RunGrid(const char* pluginmode = "test", Bool_t theMCon=kFALSE, Bool_t UseTree=kFALSE) {
+void RunGrid(const char* pluginmode = "full", Bool_t theMCon=kFALSE, Bool_t UseTree=kFALSE) {
     // Load Libraries.
     gSystem->SetIncludePath("-I. -I$ALICE_ROOT -I$ALICE_ROOT/include -I$ALICE_PHYSICS -I$ALICE_PHYSICS/include -I$ALICE_ROOT/STEER -I$ALICE_ROOT/ANALYSIS -g");
     // load base root libraries
@@ -143,7 +143,7 @@ AliAnalysisGrid* CreateAlienHandler(TString pluginmode="test",
     plugin->SetNrunsPerMaster(nruns);
     
     // Define alien work directory where all files will be copied. Relative to alien $HOME.
-    plugin->SetGridWorkingDir("LHC15i_Run235226/test_result");
+    plugin->SetGridWorkingDir("RunByRunStudy/LHC15i_Run235226/01");
     plugin->SetGridOutputDir("output");
     plugin->AddIncludePath("-I. -I$ROOTSYS/include -I$ALICE_ROOT -I$ALICE_ROOT/include -I$ALICE_ROOT/CONTAINERS -I$ALICE_ROOT/STEER -I$ALICE_ROOT/TOF -I$ALICE_ROOT/macros -I$ALICE_ROOT/ANALYSIS -I$ALICE_PHYSICS -I$ALICE_PHYSICS/include");
     
