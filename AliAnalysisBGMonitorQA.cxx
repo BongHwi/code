@@ -231,8 +231,10 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
     
     
     TH1F *runNumber_hist;
+    runNumber_hist = new TH1F("runNumber_hist","runNum", 1, 0, 1);
     fList->Add(runNumber_hist);
     TH1F *runNumber_hist_HM;
+    runNumber_hist_HM = new TH1F("runNumber_hist_HM","runNum", 1, 0, 1);
     fList2->Add(runNumber_hist_HM);
     //______________________________
     
