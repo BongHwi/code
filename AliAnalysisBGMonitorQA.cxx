@@ -448,8 +448,8 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     iEv = fESD->GetEventNumberInFile();
     runNumber = fESD->GetRunNumber();
     
-    ((TH1F*)fList->FindObject(runNumber_hist))->SetBinContent(1,runNumber);
-    ((TH1F*)fList2->FindObject(runNumber_hist_HM))->SetBinContent(1,runNumber);
+    ((TH1F*)fList->FindObject("runNumber_hist"))->SetBinContent(1,runNumber);
+    ((TH1F*)fList2->FindObject("runNumber_hist_HM"))->SetBinContent(1,runNumber);
     
     UInt_t timeGDC=fESD->GetTimeStamp();
     ftime=timeGDC;
