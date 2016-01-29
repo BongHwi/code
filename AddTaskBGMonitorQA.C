@@ -42,6 +42,9 @@ AliAnalysisBGMonitorQA *AddTaskBGMonitorQA(Bool_t UseTree = kFALSE)
         mgr->ConnectOutput(taskMBVeto, 3, coutput3);
     }
     
+    AliAnalysisDataContainer *coutput3 = mgr->CreateContainer("cOutputT", TTree::Class(), AliAnalysisManager::kOutputContainer, Form("%s:BeamGasMon", mgr->GetCommonFileName()));
+    mgr->ConnectOutput(taskMBVeto, 3, coutput3);
+    
   return taskMBVeto;
   
 }
