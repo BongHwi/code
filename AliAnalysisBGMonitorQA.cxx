@@ -77,6 +77,7 @@ fUseTree(kFALSE)
     DefineInput(0, TChain::Class());
     DefineOutput(1, TList::Class());
     DefineOutput(2, TList::Class()); //add new line for both result 2015.08.20. (blim)
+    DefineOutput(3, TList::Class()); //add new line for both result 2015.08.20. (blim)
     
     if(fUseTree==kTRUE) DefineOutput(3, TTree::Class());
     
