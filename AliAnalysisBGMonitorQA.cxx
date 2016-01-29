@@ -450,7 +450,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     Int_t iEv= 0;
     iEv = fESD->GetEventNumberInFile();
     runNumber = fESD->GetRunNumber();
-    
+
     ((TH1F*)fList->FindObject("runNumber_hist"))->SetBinContent(1,runNumber);
     ((TH1F*)fList2->FindObject("runNumber_hist_HM"))->SetBinContent(1,runNumber);
     
@@ -1036,6 +1036,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     PostData(1, fList);
     PostData(2, fList2);
     if(fUseTree==kTRUE)PostData(3, fTreeTrack);
+    fTreeTrack2->Fill();
     PostData(3, fTreeTrack2);
 }
 
