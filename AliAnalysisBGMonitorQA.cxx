@@ -187,7 +187,7 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
     }
     
     fTreeTrack2 = new TTree("TreeTrack","Track Properties2");
-    fTreeTrack->Branch("runNumber",&runNumber,"runNumber/I"); //run number
+    fTreeTrack2->Branch("runNumber",&runNumber,"runNumber/I"); //run number
     PostData(3, fTreeTrack2);
     
     TH1F *hNumEffPurityBC[3][3][3];
