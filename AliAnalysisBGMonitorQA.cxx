@@ -66,6 +66,7 @@ AliAnalysisTaskSE(name),
 fESD(0x0),
 fESDfriend(0x0),
 fTreeTrack(0),
+fTreeTrack2(0),
 fList(0),
 fList2(0), //add new List for both result 2015.08.20. (blim)
 fUseTree(kFALSE)
@@ -165,7 +166,7 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
     fTreeTrack->Branch("BGFlagC",&BGFlagC,"BGFlagC[nbunch]/I"); // V0C BG flag for PF protection
     fTreeTrack->Branch("BBFlagA",&BBFlagA,"BBFlagA[nbunch]/I"); // V0A BG flag for PF protection
     fTreeTrack->Branch("BBFlagC",&BBFlagC,"BBFlagC[nbunch]/I"); // V0C BG flag for PF protection
-    if(fUseTree==kTRUE)PostData(2, fTreeTrack);
+    if(fUseTree==kTRUE)PostData(3, fTreeTrack);
     
     if(fList != NULL){
         delete fList;
@@ -184,9 +185,9 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
         fList2->SetOwner(kTRUE); //add new List for both result 2015.08.20. (blim)
     }
     
-    
-    
-    
+    fTreeTrack2 = new TTree("TreeTrack","Track Properties2");
+    fTreeTrack->Branch("runNumber",&runNumber,"runNumber/I"); //run number
+    PostData(3, fTreeTrack2);
     
     TH1F *hNumEffPurityBC[3][3][3];
     TH1F *hDenomEffBC[3][3][3];
@@ -1035,6 +1036,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     PostData(1, fList);
     PostData(2, fList2);
     if(fUseTree==kTRUE)PostData(3, fTreeTrack);
+    PostData(3, fTreeTrack2);
 }
 
 
