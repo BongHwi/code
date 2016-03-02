@@ -17,14 +17,14 @@ Packages = {
 };
 # List of input files to be uploaded to workers
 InputFile = {
-   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235226-2//TaskAAbg_merge.C",
-   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235226-2//TaskAAbg.root",
-   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235226-2//AliAnalysisBGMonitorQA.h",
-   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235226-2//AliAnalysisBGMonitorQA.cxx",
+   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235685_runnumbertest//TaskAAbg_merge.C",
+   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235685_runnumbertest//TaskAAbg.root",
+   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235685_runnumbertest//AliAnalysisBGMonitorQA.h",
+   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235685_runnumbertest//AliAnalysisBGMonitorQA.cxx",
    "LF:$1/Stage_$2.xml"
 };
 # This is the startup script
-Executable = "/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235226-2//TaskAAbg_merge.sh";
+Executable = "/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235685_runnumbertest//TaskAAbg_merge.sh";
 # We split per SE for merging in stages
 # Time after which the job is killed (1200 min.)
 TTL = "72000";
@@ -41,6 +41,6 @@ Arguments = "Stage_$2.xml $2";
 # AliEn price for this job
 Price = "1";
 # Validation script to be run for each subjob
-Validationcommand = "/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235226-2//TaskAAbg_validation_merge.sh";
+Validationcommand = "/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235685_runnumbertest//TaskAAbg_validation_merge.sh";
 User = "blim";
 Workdirectorysize = {"5000MB"};

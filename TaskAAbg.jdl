@@ -3,10 +3,10 @@ Jobtag = {
 };
 # Input xml collections
 InputDataCollection = {
-   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235226-2//$1,nodownload"
+   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235685_runnumbertest//$1,nodownload"
 };
 # Output directory
-OutputDir = "/alice/cern.ch/user/b/blim//RunByRunStudy2/LHC15i_Run235226-2//output/$2/#alien_counter_03i#";
+OutputDir = "/alice/cern.ch/user/b/blim//RunByRunStudy2/LHC15i_Run235685_runnumbertest//output/$2/#alien_counter_03i#";
 # List of requested packagesList of requested packages
 Packages = {
    "VO_ALICE@AliRoot::v5-06-34",
@@ -15,13 +15,13 @@ Packages = {
 };
 # List of input files to be uploaded to workers
 InputFile = {
-   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235226-2//TaskAAbg.C",
-   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235226-2//TaskAAbg.root",
-   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235226-2//AliAnalysisBGMonitorQA.h",
-   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235226-2//AliAnalysisBGMonitorQA.cxx"
+   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235685_runnumbertest//TaskAAbg.C",
+   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235685_runnumbertest//TaskAAbg.root",
+   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235685_runnumbertest//AliAnalysisBGMonitorQA.h",
+   "LF:/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235685_runnumbertest//AliAnalysisBGMonitorQA.cxx"
 };
 # This is the startup script
-Executable = "/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235226-2//TaskAAbg.sh";
+Executable = "/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235685_runnumbertest//TaskAAbg.sh";
 # We split per SE or file
 Split = "se";
 # Time after which the job is killed (1200 min.)
@@ -41,7 +41,7 @@ Output = {
 # AliEn price for this job
 Price = "1";
 # Validation script to be run for each subjob
-Validationcommand = "/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235226-2//TaskAAbg_validation.sh";
+Validationcommand = "/alice/cern.ch/user/b/blim/RunByRunStudy2/LHC15i_Run235685_runnumbertest//TaskAAbg_validation.sh";
 User = "blim";
 
 # JDL variables
