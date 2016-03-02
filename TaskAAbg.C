@@ -75,7 +75,7 @@ void TaskAAbg()
    gEnv->SetValue("XNet.Debug", "1");
    TChain *chain = CreateChain("wn.xml", anatype);
 
-   mgr->StartAnalysis("localfile", chain);
+   mgr->StartAnalysis("localfile", chain, 1234567890, 0);
    timer.Stop();
    timer.Print();
 }

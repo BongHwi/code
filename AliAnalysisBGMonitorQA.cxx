@@ -12,6 +12,8 @@
 // If you have any comment or question of this code,
 // Please send a mail to Bong-Hwi or Jihye
 //
+// Last update: 2016.03.02. (blim)
+//
 //#include <Riostream.h>
 #include <iostream>
 #include <TFile.h>
@@ -442,7 +444,7 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
 void AliAnalysisBGMonitorQA::Exec(Option_t *)
 {
     // Called for each event
-    
+    cout << "test!!" << endl;
     if (!fESD) {
         Printf("ERROR: fESD not available");
         return;
@@ -688,12 +690,12 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     if(fESD->IsTriggerClassFired("CSHM8-S-NOPF-ALLNOTRD")) ftrigger[8] = 1;
     //    if(fESD->IsTriggerClassFired("CSHM8-ACE-NOPF-ALLNOTRD")) ftrigger[9] = 1; // for LHC11h
     
-    if(fESD->IsTriggerClassFired("CTEST52-B-NOPF-ALLNOTRD")|| fESD->IsTriggerClassFired("CTEST52-B-NOPF-ALLNOTRD")|| fESD->IsTriggerClassFired("CTEST52-C-NOPF-ALLNOTRD")|| fESD->IsTriggerClassFired("CTEST52-E-NOPF-ALLNOTRD") || fESD->IsTriggerClassFired("CTEST52-B-NOPF-CENT") || fESD->IsTriggerClassFired("CTEST52-C-NOPF-CENT") || fESD->IsTriggerClassFired("CTEST52-A-NOPF-CENT") || fESD->IsTriggerClassFired("CTEST52-E-NOPF-CENT") || fESD->IsTriggerClassFired("CTEST52-B-NOPF-CENTNOTRD") || fESD->IsTriggerClassFired("CTEST52-A-NOPF-CENTNOTRD") || fESD->IsTriggerClassFired("CTEST52-C-NOPF-CENTNOTRD") || fESD->IsTriggerClassFired("CTEST52-E-NOPF-CENTNOTRD")) ftrigger[9] = 1; // for LHC15f, run 297884
+    if(fESD->IsTriggerClassFired("CTEST52-B-NOPF-ALLNOTRD")|| fESD->IsTriggerClassFired("CTEST52-B-NOPF-ALLNOTRD")|| fESD->IsTriggerClassFired("CTEST52-C-NOPF-ALLNOTRD")|| fESD->IsTriggerClassFired("CTEST52-E-NOPF-ALLNOTRD") || fESD->IsTriggerClassFired("CTEST52-B-NOPF-CENT") || fESD->IsTriggerClassFired("CTEST52-C-NOPF-CENT") || fESD->IsTriggerClassFired("CTEST52-A-NOPF-CENT") || fESD->IsTriggerClassFired("CTEST52-E-NOPF-CENT") || fESD->IsTriggerClassFired("CTEST52-B-NOPF-CENTNOTRD") || fESD->IsTriggerClassFired("CTEST52-A-NOPF-CENTNOTRD") || fESD->IsTriggerClassFired("CTEST52-C-NOPF-CENTNOTRD") || fESD->IsTriggerClassFired("CTEST52-E-NOPF-CENTNOTRD") || fESD->IsTriggerClassFired("CVHMV0M-A-NOPF-CENT") || fESD->IsTriggerClassFired("CVHMV0M-B-NOPF-CENT") || fESD->IsTriggerClassFired("CVHMV0M-C-NOPF-CENT") || fESD->IsTriggerClassFired("CVHMV0M-E-NOPF-CENT") || fESD->IsTriggerClassFired("CVHMV0M-B-spdl-CENT") || fESD->IsTriggerClassFired("CVHMSH2-A-NOPF-CENT") || fESD->IsTriggerClassFired("CVHMSH2-B-NOPF-CENT") || fESD->IsTriggerClassFired("CVHMSH2-C-NOPF-CENT") || fESD->IsTriggerClassFired("CVHMSH2-E-NOPF-CENT") || fESD->IsTriggerClassFired("CVHMV0M-A-NOPF-CENTNOTRD") || fESD->IsTriggerClassFired("CVHMV0M-B-NOPF-CENTNOTRD") || fESD->IsTriggerClassFired("CVHMV0M-C-NOPF-CENTNOTRD") || fESD->IsTriggerClassFired("CVHMV0M-E-NOPF-CENTNOTRD") || fESD->IsTriggerClassFired("CVHMSH2-A-NOPF-CENTNOTRD") || fESD->IsTriggerClassFired("CVHMSH2-B-NOPF-CENTNOTRD") || fESD->IsTriggerClassFired("CVHMSH2-C-NOPF-CENTNOTRD") || fESD->IsTriggerClassFired("CVHMSH2-E-NOPF-CENTNOTRD")) ftrigger[9] = 1; // for after LHC15h, run 263000 updated by blim(20160223)
     
     // count total event number (blim)
     if(ftrigger[0]==1)((TH1F*)fList->FindObject("hNumEvents"))->Fill(1);
     if(ftrigger[9]==1)((TH1F*)fList->FindObject("hNumEvents"))->Fill(3);
-    
+    cout << "test" << endl;
     
     int nAfterBunch = 3;
     int nV0 = 3;
@@ -706,7 +708,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     
     
     if(ftrigger[0]) {  // trigger class for MB
-        
+        cout << "MB event" << endl;
         ((TH1F*)fList->FindObject("hTotalTrkVsClsSPID"))->Fill(fSpdT, fSpdC1+fSpdC2);
         ((TH1F*)fList->FindObject("hTotalV0"))->Fill(fv0a-fv0c, fv0a+fv0c);
         ((TH1F*)fList->FindObject("hTotalAD"))->Fill(fad0a-fad0c, fad0a+fad0c);
@@ -875,7 +877,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     // initialize 2015.08.17.(blim)
     
     if(ftrigger[9]) {  // trigger class for HM // add new List for both result 2015.08.20. (blim)
-        
+        cout << "HM event" << endl;
         ((TH1F*)fList2->FindObject("hTotalTrkVsClsSPID_HM"))->Fill(fSpdT, fSpdC1+fSpdC2);
         ((TH1F*)fList2->FindObject("hTotalV0_HM"))->Fill(fv0a-fv0c, fv0a+fv0c);
         ((TH1F*)fList2->FindObject("hTotalAD_HM"))->Fill(fad0a-fad0c, fad0a+fad0c);

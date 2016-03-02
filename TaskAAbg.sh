@@ -16,7 +16,7 @@ which aliroot
 echo "############## system limits : ##############"
 ulimit -a
 echo "############## memory : ##############"
-free -m
+free 2> /dev/null || { [[ `uname` == Darwin ]] && top -l 1 -s 0 | head -8 | tail -3; }
 echo "========================================="
 
 root -b -q -x TaskAAbg.C 
