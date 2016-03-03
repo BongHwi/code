@@ -79,7 +79,7 @@ fUseTree(kFALSE)
     DefineInput(0, TChain::Class());
     DefineOutput(1, TList::Class());
     DefineOutput(2, TList::Class()); //add new line for both result 2015.08.20. (blim)
-    DefineOutput(3, TTree::Class()); //add new line for Tree result 2016.01.29. (blim)
+    DefineOutput(0, TTree::Class()); //add new line for Tree result 2016.01.29. (blim)
     
     if(fUseTree==kTRUE) DefineOutput(3, TTree::Class());
     
@@ -98,6 +98,7 @@ void AliAnalysisBGMonitorQA::ConnectInputData(Option_t *)
         AliESDInputHandler *esdH = dynamic_cast<AliESDInputHandler*> (AliAnalysisManager::GetAnalysisManager()->GetInputEventHandler());
         
         if (esdH) {
+            //fESD = dynamic_cast<AliESDEvent*> (InputEvent());
             fESD = esdH->GetEvent();
             if(fESD) {
                 fESDfriend = (AliESDfriend*)fESD->FindListObject("AliESDfriend");
@@ -190,7 +191,7 @@ void AliAnalysisBGMonitorQA::CreateOutputObjects()
     
     fTreeTrack2 = new TTree("TreeTrack","Track Properties2");
     fTreeTrack2->Branch("runNumber",&runNumber,"runNumber/I"); //run number
-    PostData(3, fTreeTrack2);
+    PostData(0, fTreeTrack2);
     
     TH1F *hNumEffPurityBC[3][3][3];
     TH1F *hDenomEffBC[3][3][3];
@@ -463,7 +464,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     fbx=timeStampBX;
     ntr = 10;
     nbunch = 21;
-    ofstream ftxt;
+    //ofstream ftxt;
     
     static AliTriggerAnalysis * triggerAnalysis = new AliTriggerAnalysis();
     
@@ -1040,7 +1041,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     PostData(2, fList2);
     if(fUseTree==kTRUE)PostData(3, fTreeTrack);
     fTreeTrack2->Fill();
-    PostData(3, fTreeTrack2);
+    PostData(0, fTreeTrack2);
 }
 
 
