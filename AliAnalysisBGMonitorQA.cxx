@@ -98,7 +98,6 @@ void AliAnalysisBGMonitorQA::ConnectInputData(Option_t *)
         AliESDInputHandler *esdH = dynamic_cast<AliESDInputHandler*> (AliAnalysisManager::GetAnalysisManager()->GetInputEventHandler());
         
         if (esdH) {
-            //fESD = dynamic_cast<AliESDEvent*> (InputEvent());
             fESD = esdH->GetEvent();
             if(fESD) {
                 fESDfriend = (AliESDfriend*)fESD->FindListObject("AliESDfriend");
@@ -464,7 +463,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
     fbx=timeStampBX;
     ntr = 10;
     nbunch = 21;
-    //ofstream ftxt;
+   // ofstream ftxt;
     
     static AliTriggerAnalysis * triggerAnalysis = new AliTriggerAnalysis();
     
@@ -652,7 +651,7 @@ void AliAnalysisBGMonitorQA::Exec(Option_t *)
             
         }
     } else {
-        Printf("No esdV0friend available");
+        Printf("No esdV0friend available : test Jihye");
         return;
     }
     
