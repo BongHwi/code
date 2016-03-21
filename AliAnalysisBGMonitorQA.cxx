@@ -16,6 +16,7 @@
 //
 //#include <Riostream.h>
 #include <iostream>
+#include "AliAnalysisBGMonitorQA.h"
 #include <TFile.h>
 #include <TChain.h>
 #include <TTree.h>
@@ -30,7 +31,6 @@
 #include "AliESDfriend.h"
 #include "AliVEvent.h"
 #include "AliESDInputHandler.h"
-#include "AliAnalysisBGMonitorQA.h"
 #include "AliLog.h"
 #include "AliAnalysisFilter.h"
 #include "AliESDtrackCuts.h"
@@ -74,7 +74,6 @@ fList2(0), //add new List for both result 2015.08.20. (blim)
 fUseTree(kFALSE)
 
 {
-    
     // Constructor
     DefineInput(0, TChain::Class());
     DefineOutput(1, TList::Class());
@@ -98,7 +97,7 @@ void AliAnalysisBGMonitorQA::ConnectInputData(Option_t *)
         AliESDInputHandler *esdH = dynamic_cast<AliESDInputHandler*> (AliAnalysisManager::GetAnalysisManager()->GetInputEventHandler());
         
         if (esdH) {
-            fESD = esdH->GetEvent();
+             fESD = dynamic_cast<AliESDEvent*> (InputEvent());
             if(fESD) {
                 fESDfriend = (AliESDfriend*)fESD->FindListObject("AliESDfriend");
                 if (!fESDfriend){
