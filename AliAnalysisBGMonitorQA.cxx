@@ -98,7 +98,7 @@ void AliAnalysisBGMonitorQA::ConnectInputData(Option_t *)
         AliESDInputHandler *esdH = dynamic_cast<AliESDInputHandler*> (AliAnalysisManager::GetAnalysisManager()->GetInputEventHandler());
         
         if (esdH) {
-             fESD = dynamic_cast<AliESDEvent*> (InputEvent());
+             fESD = esdH->GetEvent();
             if(fESD) {
                 fESDfriend = (AliESDfriend*)fESD->FindListObject("AliESDfriend");
                 if (!fESDfriend){
