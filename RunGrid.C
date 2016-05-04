@@ -1,5 +1,5 @@
 void RunGrid(const char* pluginmode = "full", Bool_t theMCon=kFALSE, Bool_t UseTree=kFALSE) {
-    // Load Libraries.
+// Load Libraries.
     gSystem->SetIncludePath("-I. -I$ALICE_ROOT -I$ALICE_ROOT/include -I$ALICE_PHYSICS -I$ALICE_PHYSICS/include -I$ALICE_ROOT/STEER -I$ALICE_ROOT/ANALYSIS -g");
     // load base root libraries
     gSystem->Load("libTree");
@@ -32,64 +32,52 @@ void RunGrid(const char* pluginmode = "full", Bool_t theMCon=kFALSE, Bool_t UseT
     gSystem->Load("libTOFrec.so");
     //gSystem->Load("libTOFcalib.so");
     //__________________________________________________________________________
-    
+
     // Use AliRoot includes to compile our task
     gROOT->ProcessLine(".include $ALICE_ROOT/include");
     gROOT->ProcessLine(".include $ALICE_PHYSICS/include");
-    
-    
-    //__________________________________________________________________________
-    if(pluginmode=="local") {// Local mode
-        chain = CreateChain("filelist.txt");
-    }
-    
-    
-    
+
     
     //__________________________________________________________________________
-    
-    
+
+
     // Create and configure the alien handler plugin
     AliAnalysisGrid *alienHandler = CreateAlienHandler(pluginmode, theMCon);
     if (!alienHandler) return;
     alienHandler->Print();
     
     //__________________________________________________________________________
-    
+
     // Create the analysis manager
     AliAnalysisManager *mgr = new AliAnalysisManager("My Manager","My Manager");
-    mgr->SetDebugLevel(0);
+    //mgr->SetDebugLevel(0);
     
     // Connect plug-in to the analysis manager
     mgr->SetGridHandler(alienHandler);
     
-     // Input handlers
-    /* AliESDInputHandler* esdH = new AliESDInputHandler();
-     
-     esdH->SetReadFriends(kTRUE);
-     mgr->SetInputEventHandler(esdH);
-     */
+    // Input handlers
+    AliESDInputHandler* esdH = new AliESDInputHandler();
+    esdH->SetReadFriends(kTRUE);
+    mgr->SetInputEventHandler(esdH);
+ 
     gROOT->LoadMacro("$ALICE_ROOT/ANALYSIS/macros/AddTaskPIDResponse.C");
+
     
-    
-    // Compile libraries and Analysis Task.
+// Compile libraries and Analysis Task.
     gROOT->LoadMacro("./AliAnalysisBGMonitorQA.cxx++g");
-    //  AliAnalysisTask *task = new AliAnalysisBGMonitorQA();
     
+// Add Analysis Task.
+gROOT->LoadMacro("./AddTaskBGMonitorQA.C");
+AliAnalysisBGMonitorQA *task = AddTaskBGMonitorQA(UseTree);
+// Proceed with running.
+    //mgr->SetDebugLevel(10);
     
-    
-    // Add Analysis Task.
-    gROOT->LoadMacro("./AddTaskBGMonitorQA.C");
-    AliAnalysisBGMonitorQA *task = AddTaskBGMonitorQA(UseTree);
-    // Proceed with running.
-    mgr->SetDebugLevel(10);
-    
-    
-    if (!mgr->InitAnalysis()) return;
+
+if (!mgr->InitAnalysis()) return;
     mgr->PrintStatus();
     mgr->StartAnalysis("grid");
     
-    if(pluginmode=="local") mgr->StartAnalysis("local",chain);
+if(pluginmode=="local") mgr->StartAnalysis("local",chain);
 }
 // -------------------------------------------------------------------------
 AliAnalysisGrid* CreateAlienHandler(TString pluginmode="test",
@@ -106,50 +94,35 @@ AliAnalysisGrid* CreateAlienHandler(TString pluginmode="test",
     // Set versions of used packages
     plugin->SetAPIVersion("V1.1x");
     
+    //plugin->SetAliROOTVersion("v5-08-09-1");
+    //plugin->SetAliPhysicsVersion("vAN-20160501-1");
+
     plugin->SetAliROOTVersion("v5-06-34");
     plugin->SetAliPhysicsVersion("v5-06-34-01");
-    //plugin->SetAliPhysicsVersion("vAN-20150723");
-    
-    //plugin->SetAliROOTVersion("v5-08-01-1");
-    //plugin->SetAliPhysicsVersion("vAN-20160302-1");
-    
+
     plugin->SetNtestFiles(1);
     
     //************************************************
     // Set data search pattern for DATA
     //************************************************
-    
-    plugin->SetGridDataDir("/alice/data/2015/LHC15i/"); // specify LHC period
+    plugin->SetGridDataDir("/alice/data/2015/LHC15j/"); // specify LHC period
     //225582   plugin->SetDataPattern("pass1/*ESDs.root"); // specify reco pass and AOD set
-    plugin->SetDataPattern("muon_calo_pass1/*ESDs.root"); // specify reco pass and AOD set
+    plugin->SetDataPattern("muon_calo_pass2/*ESDs.root"); // specify reco pass and AOD set
     plugin->SetRunPrefix("000");   // real data
     Int_t nruns = 0;
     
-    
-    //  plugin->AddRunNumber(226062); // data only
-    //    plugin->AddRunNumber(226532); // data only
-    
-    //    nruns++;
-    //    plugin->AddRunNumber(226085); // data only
-    
-    //    plugin->AddRunNumber(226551); // data only
-    
-    //    nruns++;
-//        plugin->AddRunNumber(225763); // data only
-    
-//        nruns++;
-    plugin->AddRunNumber(235226); // data only
-    
+    //plugin->AddRunNumber(235226); // data only
+    plugin->AddRunNumber(238468); // data only
     nruns++;
     
     plugin->SetOutputToRunNo(kTRUE);
     plugin->SetNrunsPerMaster(nruns);
     
     // Define alien work directory where all files will be copied. Relative to alien $HOME.
-    plugin->SetGridWorkingDir("RunByRunStudy2/LHC15i_Run235226_codetest_20160409_03/");
+    plugin->SetGridWorkingDir("BGMonitorQA_codecheck/20160504_06");
     plugin->SetGridOutputDir("output");
     plugin->AddIncludePath("-I. -I$ROOTSYS/include -I$ALICE_ROOT -I$ALICE_ROOT/include -I$ALICE_ROOT/CONTAINERS -I$ALICE_ROOT/STEER -I$ALICE_ROOT/TOF -I$ALICE_ROOT/macros -I$ALICE_ROOT/ANALYSIS -I$ALICE_PHYSICS -I$ALICE_PHYSICS/include");
-    
+
     plugin->SetAdditionalLibs("AliAnalysisBGMonitorQA.h AliAnalysisBGMonitorQA.cxx libGui.so libProof.so libMinuit.so libRAWDatabase.so libRAWDatarec.so libANALYSIS.so  libANALYSISalice.so libXMLIO.so libXMLParser.so libCDB.so libSTEERBase.so libSTEER.so libSTAT.so"); //libOADB.so
     
     plugin->SetAnalysisSource("AliAnalysisBGMonitorQA.cxx");
@@ -175,16 +148,16 @@ AliAnalysisGrid* CreateAlienHandler(TString pluginmode="test",
     //plugin->SetPrice(1);
     //Optionally modify split mode (default 'se')
     plugin->SetSplitMode("se");
-    // plugin->SetOutputFiles("myTree.root, histos.root");
+   // plugin->SetOutputFiles("myTree.root, histos.root");
     plugin->SetOutputFiles("AnalysisResults.root");
-    
+
     return plugin;
 }
 
 TChain *CreateChain(const char *fileName)
 {
     TString *treename;
-    treename = new TString("esdTree");
+     treename = new TString("esdTree");
     
     TChain* chainGood = new TChain(treename->Data());
     TChain* chainNull = new TChain(treename->Data());
@@ -210,6 +183,7 @@ TChain *CreateChain(const char *fileName)
     
     return chainGood;
 }
+
 
 
 
